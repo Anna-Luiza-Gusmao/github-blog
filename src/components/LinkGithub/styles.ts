@@ -14,5 +14,6 @@ export const LinkGithubContainer = styled.div`
     img {
         width: 18px;
         height: 18px;
+        cursor: pointer;
     }
 `

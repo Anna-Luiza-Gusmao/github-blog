@@ -6,6 +6,7 @@ export const ProfileContainer = styled.section`
     position: relative;
     padding: 2rem;
     margin-top: -6rem;
+    margin-bottom: 4.5rem;
     
     border-radius: 10px;
     background: ${props => props.theme["blue-700"]};

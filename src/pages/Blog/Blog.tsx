@@ -1,5 +1,6 @@
 import { Header } from '../../components/Header'
 import { Profile } from './components/Profile'
+import { SearchForm } from './components/SearchForm'
 import { BlogContainer } from './styles'
 
 export function Blog () {
@@ -8,6 +9,7 @@ export function Blog () {
             <Header />
             <BlogContainer>
                 <Profile />
+                <SearchForm />
             </BlogContainer>
         </>
     )
