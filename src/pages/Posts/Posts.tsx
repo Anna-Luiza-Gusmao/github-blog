@@ -1,9 +1,9 @@
-import ImgHeader from '../../assets/header.png'
+import { Header } from '../../components/Header'
 
 export function Posts () {
     return (
         <>
-            <img src={ImgHeader} width='100%' />
+            <Header />
             <h1>Page Posts</h1>
         </>
     )

@@ -1,7 +1,14 @@
-import ImgHeader from '../../assets/header.png'
+import { Header } from '../../components/Header'
+import { Profile } from './components/Profile'
+import { BlogContainer } from './styles'
 
 export function Blog () {
     return (
-        <img src={ImgHeader} width='100%'/>
+        <>
+            <Header />
+            <BlogContainer>
+                <Profile />
+            </BlogContainer>
+        </>
     )
 }
