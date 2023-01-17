@@ -2,6 +2,7 @@ import { ReactNode, createContext, useEffect, useState } from "react"
 import { api } from "../lib/axios"
 
 interface DataUser {
+    avatar_url: string,
     name: string,
     html_url: string,
     bio: string,

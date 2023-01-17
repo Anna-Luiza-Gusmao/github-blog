@@ -9,9 +9,12 @@ import IconGithub from '../../../../assets/icons/github.svg'
 import Calendar from '../../../../assets/icons/calendar.svg'
 import Comment from '../../../../assets/icons/comment.svg'
 import { useNavigate } from 'react-router-dom'
+import { useContext } from 'react'
+import { UserContext } from '../../../../context/UserContext'
 
 export function HeaderPost() {
     const navigate = useNavigate()
+    const { userData } = useContext(UserContext)
 
     return (
         <HeaderContainer>
@@ -26,7 +29,7 @@ export function HeaderPost() {
             <div style={{ 'marginTop': '1.5rem', 'display': 'flex' }}>
                 <IconContainer>
                     <img src={IconGithub} />
-                    <p style={{'color': '#7B96B2'}}>Anna-Luiza-Gusmao</p>
+                    <p style={{'color': '#7B96B2'}}>{userData.login}</p>
                 </IconContainer>
                 <IconContainer>
                     <img src={Calendar} />

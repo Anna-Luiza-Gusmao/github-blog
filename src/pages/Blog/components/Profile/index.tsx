@@ -14,7 +14,7 @@ export function Profile () {
 
     return (
         <ProfileContainer>
-            <ProfilePicture src='https://avatars.githubusercontent.com/u/87679298?v=4' />
+            <ProfilePicture src={userData.avatar_url} />
             <ProfileData>
                 <TitleContainer>
                     <Title>{userData.name}</Title>
