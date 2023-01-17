@@ -2,6 +2,7 @@ import styled from "styled-components"
 
 export const ProfileContainer = styled.section`
     display: flex;
+    align-items: center;
 
     position: relative;
     padding: 2rem;
@@ -23,6 +24,7 @@ export const ProfileData = styled.section`
     flex-direction: column;
 
     padding-left: 2rem;
+    width: 100%;
 `
 
 export const TitleContainer = styled.div`
