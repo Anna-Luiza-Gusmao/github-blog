@@ -1,29 +1,32 @@
-import { PublicationsContainer, PublicationsDiv, HeaderPublications } from './styles'
+import { useNavigate } from 'react-router-dom'
+import { AllPublications, PublicationsContainer, HeaderPublications } from './styles'
 
 export function Publications () {
+    const navigate = useNavigate()
+
     return (
-        <PublicationsContainer>
-            <PublicationsDiv>
+        <AllPublications>
+            <PublicationsContainer onClick={() => navigate('/post')}>
                 <HeaderPublications>
                     <p>JavaScript data types and data structures</p>
                     <span>Há 1 dia</span>
                 </HeaderPublications>
                 <p>Programming languages all have built-in data structures, but these often differ from one language to another. This article attempts to list the built-in data structures available in </p>
-            </PublicationsDiv>
-            <PublicationsDiv>
+            </PublicationsContainer>
+            <PublicationsContainer onClick={() => navigate('/post')}>
                 <HeaderPublications>
                     <p>JavaScript data types and data structures</p>
                     <span>Há 1 dia</span>
                 </HeaderPublications>
                 <p>Programming languages all have built-in data structures, but these often differ from one language to another. This article attempts to list the built-in data structures available in </p>
-            </PublicationsDiv>
-            <PublicationsDiv>
+            </PublicationsContainer>
+            <PublicationsContainer onClick={() => navigate('/post')}>
                 <HeaderPublications>
                     <p>JavaScript data types and data structures</p>
                     <span>Há 1 dia</span>
                 </HeaderPublications>
                 <p>Programming languages all have built-in data structures, but these often differ from one language to another. This article attempts to list the built-in data structures available in </p>
-            </PublicationsDiv>
-        </PublicationsContainer>
+            </PublicationsContainer>
+        </AllPublications>
     )
 }

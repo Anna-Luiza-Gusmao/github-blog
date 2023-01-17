@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const PublicationsContainer = styled.section`
+export const AllPublications = styled.section`
     display: grid;
     justify-items: center;
     grid-template-columns: 1fr 1fr;
@@ -10,9 +10,10 @@ export const PublicationsContainer = styled.section`
     margin: 3rem 0;
 `
 
-export const PublicationsDiv = styled.div`
+export const PublicationsContainer = styled.div`
     display: flex;
     flex-direction: column;
+    cursor: pointer;
 
     padding: 2rem;
     background: ${props => props.theme["blue-600"]};
