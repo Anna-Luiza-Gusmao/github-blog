@@ -6,7 +6,8 @@ interface DataIssues {
     title: string,
     body: string,
     comments: number,
-    created_at: string
+    created_at: string,
+    number: number
 }
 
 interface IssuesContextType {

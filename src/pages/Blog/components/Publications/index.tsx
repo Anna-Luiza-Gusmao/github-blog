@@ -1,32 +1,47 @@
 import { useNavigate } from 'react-router-dom'
 import { AllPublications, PublicationsContainer, HeaderPublications } from './styles'
+import { useContext } from 'react'
+import { IssuesContext } from '../../../../context/IssuesContext'
+import { formatDistanceToNow } from 'date-fns'
+import ptBR from 'date-fns/locale/pt-BR'
 
-export function Publications () {
+export function Publications() {
     const navigate = useNavigate()
+    const { issuesData } = useContext(IssuesContext)
+
+    const limitedIssuesBody = (body: string) => {
+        let stringDescriptionIssues = body.split('')
+        if (stringDescriptionIssues.length > 250) {
+            const newStringDescriptionIssues = stringDescriptionIssues.slice(0, 251);
+            stringDescriptionIssues = newStringDescriptionIssues.concat('...');
+        }
+
+        return stringDescriptionIssues
+    }
+
+    const formatDataIssues = (date: string) => {
+        const plainDateString = formatDistanceToNow(new Date(date), {
+            addSuffix: true,
+            locale: ptBR
+        })
+        const dataStringWithFormatting = plainDateString.charAt(0).toUpperCase() + plainDateString.slice(1)
+        
+        return dataStringWithFormatting
+    }
 
     return (
         <AllPublications>
-            <PublicationsContainer onClick={() => navigate('/post')}>
-                <HeaderPublications>
-                    <p>JavaScript data types and data structures</p>
-                    <span>Há 1 dia</span>
-                </HeaderPublications>
-                <p>Programming languages all have built-in data structures, but these often differ from one language to another. This article attempts to list the built-in data structures available in </p>
-            </PublicationsContainer>
-            <PublicationsContainer onClick={() => navigate('/post')}>
-                <HeaderPublications>
-                    <p>JavaScript data types and data structures</p>
-                    <span>Há 1 dia</span>
-                </HeaderPublications>
-                <p>Programming languages all have built-in data structures, but these often differ from one language to another. This article attempts to list the built-in data structures available in </p>
-            </PublicationsContainer>
-            <PublicationsContainer onClick={() => navigate('/post')}>
-                <HeaderPublications>
-                    <p>JavaScript data types and data structures</p>
-                    <span>Há 1 dia</span>
-                </HeaderPublications>
-                <p>Programming languages all have built-in data structures, but these often differ from one language to another. This article attempts to list the built-in data structures available in </p>
-            </PublicationsContainer>
+            {
+                issuesData.map((item) => (
+                    <PublicationsContainer key={item.number} onClick={() => navigate('/post')}>
+                        <HeaderPublications>
+                            <p>{item.title}</p>
+                            <span>{formatDataIssues(item.created_at)}</span>
+                        </HeaderPublications>
+                        <p>{limitedIssuesBody(item.body)}</p>
+                    </PublicationsContainer>
+                ))
+            }
         </AllPublications>
     )
 }
