@@ -1,10 +1,14 @@
+import { PostContainer } from './styles'
 import { Header } from '../../components/Header'
+import { HeaderPost } from './components/HeaderPost'
 
 export function Posts () {
     return (
         <>
             <Header />
-            <h1>Page Posts</h1>
+            <PostContainer>
+                <HeaderPost />
+            </PostContainer>
         </>
     )
 }
