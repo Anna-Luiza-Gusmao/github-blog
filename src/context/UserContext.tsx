@@ -32,8 +32,6 @@ export function UserProvider ({children}: UserProviderProps) {
     useEffect(() => {
         fecthUser()
     }, [])
-
-    console.log(userData)
     
     return (
         <UserContext.Provider value={{ userData }}>
