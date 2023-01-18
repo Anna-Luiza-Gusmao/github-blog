@@ -40,7 +40,7 @@ export function HeaderPost({ issues }: HeaderPostProps) {
                 </IconContainer>
                 <IconContainer>
                     <img src={Calendar} />
-                    <p style={{'color': '#7B96B2'}}>{issues.updated_at}</p>
+                    <p style={{'color': '#7B96B2'}}>{formatDataIssues(issues.updated_at)}</p>
                 </IconContainer>
                 <IconContainer>
                     <img src={Comment} />
