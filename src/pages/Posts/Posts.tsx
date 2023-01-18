@@ -5,6 +5,7 @@ import { useLocation } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { api } from '../../lib/axios'
 import { Loader } from './components/Loader'
+import { PostContent } from './components/PostContent'
 
 export interface DataIssue {
     title: string,
@@ -39,6 +40,7 @@ export function Posts() {
                         <Header />
                         <PostContainer>
                             <HeaderPost issues={issues} />
+                            <PostContent content={issues.body} />
                         </PostContainer>
                     </>
                 )
