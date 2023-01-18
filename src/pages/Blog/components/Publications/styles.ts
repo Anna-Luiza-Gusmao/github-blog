@@ -30,15 +30,15 @@ export const HeaderPublications = styled.header`
 
     margin-bottom: 1.25rem;
 
-    p {
-        font-size: 1.25rem;
-        font-weight: 700;
-        color: ${props => props.theme["white"]};
-        padding-right: 3rem;
-    }
-
     span {
         font-size: 0.875rem;
         color: ${props => props.theme["blue-200"]};
     }
+`
+
+export const PublicationDescription = styled.p`
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: ${props => props.theme["white"]};
+    padding-right: 3rem;
 `
