@@ -50,8 +50,6 @@ export function IssuesProvider ({children}: IssuesProviderProps) {
     useEffect(() => {
         fecthIssues()
     }, [])
-
-    console.log(issuesData)
     
     return (
         <IssuesContext.Provider value={{ issuesData, formatDataIssues, searchIssues }}>

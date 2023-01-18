@@ -30,8 +30,6 @@ export function Posts() {
         selectedIssues(pathId)
     }, [])
 
-    console.log(issues)
-
     return (
         <>
             {
