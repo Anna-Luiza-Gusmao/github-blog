@@ -1,6 +1,4 @@
-import { useEffect, useState } from 'react'
 import { Header } from '../../components/Header'
-import { api } from '../../lib/axios'
 import { Profile } from './components/Profile'
 import { Publications } from './components/Publications'
 import { SearchForm } from './components/SearchForm'

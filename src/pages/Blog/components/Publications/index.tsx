@@ -21,7 +21,7 @@ export function Publications() {
         <AllPublications>
             {
                 issuesData.map((item) => (
-                    <PublicationsContainer key={item.number} onClick={() => navigate('/post')}>
+                    <PublicationsContainer key={item.number} onClick={() => navigate(`/post/${item.number}`)}>
                         <HeaderPublications>
                             <p>{item.title}</p>
                             <span>{formatDataIssues(item.created_at)}</span>
