@@ -9,38 +9,19 @@ import IconGithub from '../../../../assets/icons/github.svg'
 import Calendar from '../../../../assets/icons/calendar.svg'
 import Comment from '../../../../assets/icons/comment.svg'
 import { useNavigate } from 'react-router-dom'
-import { useContext, useEffect, useState } from 'react'
+import { useContext } from 'react'
 import { UserContext } from '../../../../context/UserContext'
-import { api } from '../../../../lib/axios'
 import { IssuesContext } from '../../../../context/IssuesContext'
+import { DataIssue } from '../../Posts'
 
 interface HeaderPostProps {
-    pathId: number
+    issues: DataIssue
 }
 
-interface DataIssue {
-    title: string,
-    body: string,
-    updated_at: string,
-    comments: number
-}
-
-export function HeaderPost({ pathId }: HeaderPostProps) {
+export function HeaderPost({ issues }: HeaderPostProps) {
     const navigate = useNavigate()
     const { userData } = useContext(UserContext)
-    const [ issue, setIssue] = useState({} as DataIssue)
     const { formatDataIssues } = useContext(IssuesContext)
-
-    async function selectedIssues(id: number) {
-        const response = await api.get(`repos/Anna-Luiza-Gusmao/github-blog/issues/${id}`)
-        setIssue(response.data)
-    }
-    
-    useEffect(() => {
-        selectedIssues(pathId)
-    }, [])
-
-    console.log(issue)
 
     return (
         <HeaderContainer>
@@ -49,9 +30,9 @@ export function HeaderPost({ pathId }: HeaderPostProps) {
                     <img src={ArrowLeft} onClick={() => navigate('/')}/>
                     <p>VOLTAR</p>
                 </LinkBackContainer>
-                <LinkGithub descriptionLink="VER NO GITHUB" pathIcon={ArrowUp} pathGithub='/' />
+                <LinkGithub descriptionLink="VER NO GITHUB" pathIcon={ArrowUp} pathGithub={issues.html_url} />
             </LinkHeader>
-            <Title>{issue.title}</Title>
+            <Title>{issues.title}</Title>
             <div style={{ 'marginTop': '1.5rem', 'display': 'flex' }}>
                 <IconContainer>
                     <img src={IconGithub} />
@@ -59,11 +40,11 @@ export function HeaderPost({ pathId }: HeaderPostProps) {
                 </IconContainer>
                 <IconContainer>
                     <img src={Calendar} />
-                    <p style={{'color': '#7B96B2'}}></p>
+                    <p style={{'color': '#7B96B2'}}>{issues.updated_at}</p>
                 </IconContainer>
                 <IconContainer>
                     <img src={Comment} />
-                    <p style={{'color': '#7B96B2'}}>{issue.comments} comentários</p>
+                    <p style={{'color': '#7B96B2'}}>{issues.comments} comentários</p>
                 </IconContainer>
             </div>
         </HeaderContainer>
