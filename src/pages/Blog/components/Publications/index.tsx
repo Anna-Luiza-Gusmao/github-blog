@@ -9,8 +9,8 @@ export function Publications() {
 
     const limitedIssuesBody = (body: string) => {
         let stringDescriptionIssues = body.split('')
-        if (stringDescriptionIssues.length > 260) {
-            const newStringDescriptionIssues = stringDescriptionIssues.slice(0, 261);
+        if (stringDescriptionIssues.length > 160) {
+            const newStringDescriptionIssues = stringDescriptionIssues.slice(0, 161);
             stringDescriptionIssues = newStringDescriptionIssues.concat('...');
         }
 
