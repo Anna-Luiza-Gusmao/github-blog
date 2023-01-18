@@ -14,7 +14,8 @@ interface DataIssues {
 
 interface IssuesContextType {
     issuesData: DataIssues[],
-    formatDataIssues: (date: string) => string
+    formatDataIssues: (date: string) => string,
+    searchIssues: (query?: string) => Promise<void>
 }
 
 interface IssuesProviderProps {
@@ -41,6 +42,11 @@ export function IssuesProvider ({children}: IssuesProviderProps) {
         setIssuesData(response.data)
     }
 
+    async function searchIssues(query?: string) {
+        const response = await api.get(`search/issues?q=${query}%20repo:Anna-Luiza-Gusmao/github-blog`)
+        setIssuesData(response.data.items)
+    }
+
     useEffect(() => {
         fecthIssues()
     }, [])
@@ -48,7 +54,7 @@ export function IssuesProvider ({children}: IssuesProviderProps) {
     console.log(issuesData)
     
     return (
-        <IssuesContext.Provider value={{ issuesData, formatDataIssues }}>
+        <IssuesContext.Provider value={{ issuesData, formatDataIssues, searchIssues }}>
             {children}
         </IssuesContext.Provider>
     )
