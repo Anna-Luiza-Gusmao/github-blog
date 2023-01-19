@@ -4,7 +4,7 @@
 
 ## 🎉 Let's go!
 
-Para iniciar o projeto insira o comando <code>npm run dev</code> ou visite a **URL**: https://63c81a1f759d1701ade22eba--lighthearted-cactus-ba7f33.netlify.app/
+Para iniciar o projeto insira o comando <code>npm run dev</code> ou visite a **URL**: https://63c92b24931ef7786db4c8f1--meek-parfait-a81d1d.netlify.app/
 
 ## 💻 Projeto
 
