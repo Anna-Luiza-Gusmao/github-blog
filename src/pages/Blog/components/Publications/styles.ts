@@ -41,4 +41,8 @@ export const PublicationDescription = styled.p`
     font-weight: 700;
     color: ${props => props.theme["white"]};
     padding-right: 3rem;
+
+    @media (max-width: 1366px) {
+        padding-right: 1rem;
+    }
 `
